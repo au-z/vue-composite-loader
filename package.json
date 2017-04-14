@@ -4,7 +4,8 @@
   "description": "Webpack loader for creating vue-composite components from your .vue files.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint lib",
+    "test": "eslint lib && mocha"
   },
   "repository": {
     "type": "git",
@@ -22,8 +23,25 @@
   },
   "homepage": "https://github.com/auzmartist/vue-composite-loader#readme",
   "devDependencies": {
+    "chai": "^3.5.0",
     "eslint": "^3.19.0",
     "eslint-config-auz": "^1.0.0",
+    "expose-loader": "^0.7.3",
+    "hash-sum": "^1.0.2",
+    "lru-cache": "^4.0.2",
+    "memory-fs": "^0.4.1",
+    "mocha": "^3.2.0",
+    "source-map": "^0.5.6",
+    "vue": "^2.2.6",
+    "vue-loader": "^11.3.4",
+    "vue-template-compiler": "^2.2.6",
     "webpack": "^2.4.1"
+  },
+  "dependencies": {
+    "hash-sum": "^1.0.2",
+    "loader-utils": "^1.1.0",
+    "vue-hot-reload-api": "^2.0.11",
+    "vue-style-loader": "^3.0.0",
+    "vue-template-es2015-compiler": "^1.5.2"
   }
 }
