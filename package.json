@@ -1,0 +1,29 @@
+{
+  "name": "vue-composite-loader",
+  "version": "1.0.0",
+  "description": "Webpack loader for creating vue-composite components from your .vue files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/auzmartist/vue-composite-loader.git"
+  },
+  "keywords": [
+    "vue-composite",
+    "loader",
+    "webpack"
+  ],
+  "author": "Austin Martin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/auzmartist/vue-composite-loader/issues"
+  },
+  "homepage": "https://github.com/auzmartist/vue-composite-loader#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-auz": "^1.0.0",
+    "webpack": "^2.4.1"
+  }
+}
