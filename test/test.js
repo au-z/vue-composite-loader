@@ -1,13 +1,19 @@
 /* eslint-env node */
 /* eslint-disable no-console */
+const fs = require('fs');
+const path = require('path');
 const MemoryFS = require('memory-fs');
 let webpack = require('webpack');
 let expect = require('chai').expect;
-// const hash = require('hash-sum');
 
-const fs = new MemoryFS();
+const mfs = new MemoryFS();
 let webpackConfig = require('./webpack.config');
 
+/**
+ * Runs webpack with the given configuration, calling the cb function when done
+ * @param {Object} options webpack loader options
+ * @param {*} cb a callback fn
+ */
 function bundle(options, cb) {
 	let vueOptions = options.vue;
 	delete options.vue;
@@ -21,7 +27,7 @@ function bundle(options, cb) {
 	}
 
 	let compiler = webpack(config);
-	compiler.outputFileSystem = fs;
+	compiler.outputFileSystem = mfs;
 	compiler.run((err, stats) => {
 		// expect(err).to.be.null;
 		if(err) {
@@ -31,38 +37,29 @@ function bundle(options, cb) {
 			stats.compilation.errors.forEach((err) => console.error(err.message));
 		}
 		expect(stats.compilation.errors).to.be.empty;
-		cb(fs.readFileSync('/test.build.js').toString(), stats.compilation.warnings);
+		// console.log(compiler.outputFileSystem);
+		const output = mfs.readFileSync('/test.build.js').toString();
+		cb(output, stats.compilation.warnings);
 	});
 }
 
+/**
+ * Tests a given webpack configuration output, calling assert after webpack is complete
+ * @param {Object} options weboack options
+ * @param {*} assert the assertion function to test
+ */
 function test(options, assert) {
 	bundle(options, (code, warnings) => {
-		console.log('[CODE] ', code);
 		assert(code);
-		// jsdom.env({
-		// 	html: '<!DOCTYPE html><html><head></head><body></body></html>',
-		// 	src: [code],
-		// 	done: (err, window) => {
-		// 		if (err) {
-		// 			console.log(err[0].data.error.stack);
-		// 			expect(err).to.be.null;
-		// 		}
-		// 		assert(window, interopDefault(window.vueModule), window.vueModule);
-		// 	}
-		// });
 	});
-}
-
-function interopDefault(module) {
-	return module ? module.__esModule ? module.default : module : module;
 }
 
 /* eslint-disable no-undef */
 describe('vue-component-loader', function() {
-	it('parses template, script, and style', (done) => {
+	it('combines template, script, and style', (done) => {
 		test({entry: './test/fixtures/app.vue'}, (code) => {
-			console.log('CODE: ', code);
-			expect(code).to.not.be.null;
+			let file = fs.readFileSync(path.resolve(__dirname, 'output/app.js')).toString();
+			expect(file).to.not.be.null;
 			done();
 		});
 	});

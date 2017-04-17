@@ -2,3 +2,6 @@
 dist/
 node_modules/
 npm-debug.log
+test/output/
+npm-debug.log
+npm-debug.log.*

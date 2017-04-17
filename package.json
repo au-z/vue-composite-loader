@@ -24,10 +24,10 @@
   "homepage": "https://github.com/auzmartist/vue-composite-loader#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "css-loader": "^0.28.0",
     "eslint": "^3.19.0",
     "eslint-config-auz": "^1.0.0",
     "expose-loader": "^0.7.3",
-    "hash-sum": "^1.0.2",
     "lru-cache": "^4.0.2",
     "memory-fs": "^0.4.1",
     "mocha": "^3.2.0",
