@@ -3,7 +3,7 @@
 </template>
 
 <script>
-	import Foo from './Foo';
+import Foo from './Foo';
 	export default {
 		/* Remove me! */
 		name: 'test',
@@ -13,7 +13,6 @@
 			};
 		},
 		created: function() {
-			// remove this too
 			Vue.use(Vuex); // total no-no
 		},
 	};
