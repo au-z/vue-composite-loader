@@ -71,6 +71,7 @@ describe('vue-component-loader', function() {
 			expect(file.indexOf('import') === -1).to.be.true;
 			expect(file.indexOf('Vue.use(') === -1).to.be.true;
 			expect(file.indexOf('/*') === -1).to.be.true;
+			expect(file.indexOf('http://testurl.com') === -1).to.be.false;
 			done();
 		});
 	});

@@ -7,13 +7,15 @@ import Foo from './Foo';
 	export default {
 		/* Remove me! */
 		name: 'test',
+		injectableUrl: 'http://testurl.com',
 		data() {
 			return {
 				msg: 'Hello Vue!',
 			};
 		},
 		created: function() {
-			Vue.use(Vuex); // total no-no
+			// comment will be removed by minifier
+			Vue.use(Vuex); // okay comment
 		},
 	};
 </script>
