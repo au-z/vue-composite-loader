@@ -1,4 +1,4 @@
-# vue-composite-loader
+# vue-composite-loader [![Build Status](https://travis-ci.org/auzmartist/vue-composite-loader.svg?branch=master)](https://travis-ci.org/auzmartist/vue-composite-loader)
 > A webpack loader for transforming .vue files into .js Vue composable components. Vue-composite-loader works in tandem
 with vue-loader to allow you to easily share your Vue components across services with the vue-composite plugin.
 
