@@ -1,5 +1,7 @@
 /* eslint-env node */
 /* eslint-disable no-console */
+'use-strict';
+
 const fs = require('fs');
 const path = require('path');
 const MemoryFS = require('memory-fs');
