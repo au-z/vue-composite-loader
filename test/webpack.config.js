@@ -22,17 +22,6 @@ module.exports = {
 						},
 					},
 				],
-				// use: [
-				// 	// {
-				// 	// 	loader: 'vue-loader',
-				// 	// },
-				// 	{
-				// 		loader: require(loaderPath),
-				// 		options: {
-				// 			path: path.resolve(__dirname, 'output/'),
-				// 		},
-				// 	},
-				// ],
 			},
 		],
 	},

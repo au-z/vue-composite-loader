@@ -65,4 +65,13 @@ describe('vue-component-loader', function() {
 			done();
 		});
 	});
+	it('strips import statements, comments, and Vue.use() statements', (done) => {
+		test({entry: './test/fixtures/scriptNeedsParsing.vue'}, (code) => {
+			let file = fs.readFileSync(path.resolve(__dirname, 'output/scriptNeedsParsing.js')).toString();
+			expect(file.indexOf('import') === -1).to.be.true;
+			expect(file.indexOf('Vue.use(') === -1).to.be.true;
+			expect(file.indexOf('/*') === -1).to.be.true;
+			done();
+		});
+	});
 });

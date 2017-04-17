@@ -1,6 +1,6 @@
 {
   "name": "vue-composite-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Webpack loader for creating vue-composite components from your .vue files.",
   "main": "index.js",
   "scripts": {
